@@ -6,9 +6,6 @@ let $APPLICATION-SERVER-PORT := 8016
 let $APPLICATION-SERVER-MODULE-PATH := "C:\Users\mltraining\workspace/simple-xquery-http-application/module/"
 let $DATABASE-NAME := "simple-app-database"
 
-let $INTERPETER-SERVER-NAME := "interpreter-app"
-let $INTERPETER-SERVER-PORT := 8017
-
 let $config := admin:get-configuration()
 
 let $forest-name := fn:concat($DATABASE-NAME, "-forest")
@@ -30,9 +27,5 @@ let $groupid := admin:group-get-id($config, "Default")
 let $config := admin:http-server-create($config, $groupid, $APPLICATION-SERVER-NAME, $APPLICATION-SERVER-MODULE-PATH, $APPLICATION-SERVER-PORT, 0, $database)
 let $statement := admin:save-configuration($config)
 let $statement := xdmp:log("created http server.")
-
-let $config := admin:xdbc-server-create($config, $groupid, $INTERPETER-SERVER-NAME, "/", $INTERPETER-SERVER-PORT, 0, $database)
-let $statement := admin:save-configuration($config)
-let $statement := xdmp:log("created interpreter server.")
 
 return admin:save-configuration($config)
