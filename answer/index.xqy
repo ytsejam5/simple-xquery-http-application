@@ -3,6 +3,7 @@ xquery version "1.0-ml";
 import module namespace search = "http://marklogic.com/appservices/search" at "/MarkLogic/appservices/search/search.xqy";
 
 let $query:= xdmp:get-request-field("query", "")
+
 let $search-result := search:search($query, ())
 
 return (
