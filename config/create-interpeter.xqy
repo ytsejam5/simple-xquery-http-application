@@ -3,7 +3,7 @@ import module namespace admin = "http://marklogic.com/xdmp/admin" at "/MarkLogic
 
 let $INTERPETER-SERVER-NAME := "interpreter-app"
 let $INTERPETER-SERVER-PORT := 8017
-let $DATABASE-NAME := "inerpreter-database"
+let $DATABASE-NAME := "interpreter-database"
 
 let $config := admin:get-configuration()
 
